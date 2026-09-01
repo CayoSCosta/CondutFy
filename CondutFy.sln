@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondutFy.Infrastructure", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondutFy.API", "CondutFy.API\CondutFy.API.csproj", "{DE0BA22B-EB6F-4DD3-8CFF-EA3D967F35E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondutFy.Tests", "CondutFy.Tests\CondutFy.Tests.csproj", "{2914D68E-37BE-429B-8927-12119C68B158}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,18 @@ Global
 		{DE0BA22B-EB6F-4DD3-8CFF-EA3D967F35E9}.Release|x64.Build.0 = Release|Any CPU
 		{DE0BA22B-EB6F-4DD3-8CFF-EA3D967F35E9}.Release|x86.ActiveCfg = Release|Any CPU
 		{DE0BA22B-EB6F-4DD3-8CFF-EA3D967F35E9}.Release|x86.Build.0 = Release|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Debug|x64.Build.0 = Debug|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Debug|x86.Build.0 = Debug|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Release|x64.ActiveCfg = Release|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Release|x64.Build.0 = Release|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Release|x86.ActiveCfg = Release|Any CPU
+		{2914D68E-37BE-429B-8927-12119C68B158}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
