@@ -7,5 +7,6 @@ public interface IApplicationDbContext
 {
     DbSet<Tenant> Tenants { get; }
     DbSet<ChannelIntegration> ChannelIntegrations { get; }
+    DbSet<Message> Messages { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }
