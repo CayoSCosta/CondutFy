@@ -18,11 +18,8 @@ public class WebhooksController : ControllerBase
     [HttpPost("{channelType}")]
     public async Task<IActionResult> Receive(string channelType, [FromBody] ReceiveMessageCommand command, CancellationToken cancellationToken)
     {
-        // Força o tipo de canal vindo da URL para garantir consistência
-        var normalizedCommand = command with { ChannelType = channelType };
-
         var handler = new ReceiveMessageCommandHandler(_context);
-        var success = await handler.HandleAsync(normalizedCommand, cancellationToken);
+        var success = await handler.HandleAsync(channelType, command, cancellationToken);
 
         if (!success)
         {
