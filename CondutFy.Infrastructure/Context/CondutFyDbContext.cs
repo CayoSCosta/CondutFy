@@ -24,6 +24,8 @@ public class CondutFyDbContext : DbContext, IApplicationDbContext // 👈 Assina
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(CondutFyDbContext).Assembly);
-        modelBuilder.Entity<ChannelIntegration>().HasQueryFilter(c => !_currentTenantId.HasValue || c.TenantId == _currentTenantId.Value);
+
+        // 👇 Ajuste para evitar o erro de Nullable no Global Query Filter
+        modelBuilder.Entity<ChannelIntegration>().HasQueryFilter(c => _currentTenantId == null || c.TenantId == _currentTenantId);
     }
 }
