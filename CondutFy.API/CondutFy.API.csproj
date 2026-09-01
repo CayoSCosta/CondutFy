@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ZapFlow.Application\ZapFlow.Application.csproj" />
-    <ProjectReference Include="..\ZapFlow.Infrastructure\ZapFlow.Infrastructure.csproj" />
+    <ProjectReference Include="..\CondutFy.Application\CondutFy.Application.csproj" />
+    <ProjectReference Include="..\CondutFy.Infrastructure\CondutFy.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,6 @@
+@CondutFy.API_HostAddress = http://localhost:5164
+
+GET {{CondutFy.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

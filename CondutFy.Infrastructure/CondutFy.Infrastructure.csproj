@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\ZapFlow.Domain\ZapFlow.Domain.csproj" />
-    <ProjectReference Include="..\ZapFlow.Application\ZapFlow.Application.csproj" />
+    <ProjectReference Include="..\CondutFy.Domain\CondutFy.Domain.csproj" />
+    <ProjectReference Include="..\CondutFy.Application\CondutFy.Application.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

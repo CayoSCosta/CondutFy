@@ -1,6 +1,0 @@
-@ZapFlow.API_HostAddress = http://localhost:5267
-
-GET {{ZapFlow.API_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
