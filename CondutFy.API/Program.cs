@@ -1,3 +1,4 @@
+using CondutFy.Application.Common.Interfaces;
 using CondutFy.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,6 +21,8 @@ builder.Services.AddDbContext<CondutFyDbContext>(options =>
         options.UseNpgsql(connectionString);
     }
 });
+
+builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<CondutFyDbContext>());
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
