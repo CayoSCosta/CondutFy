@@ -8,5 +8,6 @@ public interface IApplicationDbContext
     DbSet<Tenant> Tenants { get; }
     DbSet<ChannelIntegration> ChannelIntegrations { get; }
     DbSet<Message> Messages { get; }
+    DbSet<User> Users { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken);
 }

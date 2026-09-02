@@ -8,7 +8,8 @@ public class CondutFyDbContext : DbContext, IApplicationDbContext // 👈 Assina
 {
     public DbSet<Tenant> Tenants => Set<Tenant>();
     public DbSet<ChannelIntegration> ChannelIntegrations => Set<ChannelIntegration>();
-public DbSet<Message> Messages => Set<Message>();
+    public DbSet<Message> Messages => Set<Message>();
+    public DbSet<User> Users => Set<User>();
     private readonly Guid? _currentTenantId;
 
     public CondutFyDbContext(DbContextOptions<CondutFyDbContext> options) : base(options)
@@ -27,6 +28,6 @@ public DbSet<Message> Messages => Set<Message>();
 
         // 👇 Ajuste para evitar o erro de Nullable no Global Query Filter
         modelBuilder.Entity<ChannelIntegration>().HasQueryFilter(c => _currentTenantId == null || c.TenantId == _currentTenantId);
-        modelBuilder.Entity<Message>().HasQueryFilter(m => _currentTenantId == null || m.TenantId == _currentTenantId); 
+        modelBuilder.Entity<Message>().HasQueryFilter(m => _currentTenantId == null || m.TenantId == _currentTenantId);
     }
 }

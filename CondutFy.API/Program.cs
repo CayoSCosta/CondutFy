@@ -23,6 +23,8 @@ builder.Services.AddDbContext<CondutFyDbContext>(options =>
     }
 });
 
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ICurrentUserService, CurrentUserService>();
 builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<CondutFyDbContext>());
 builder.Services.AddScoped<IMessagingService, ExternalMessagingService>();
 builder.Services.AddHttpClient<IMessageSuggestorService, ClaudeMessageSuggestorService>();
