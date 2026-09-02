@@ -1,5 +1,6 @@
 using CondutFy.Application.Common.Interfaces;
 using CondutFy.Infrastructure.Context;
+using CondutFy.Infrastructure.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,6 +24,7 @@ builder.Services.AddDbContext<CondutFyDbContext>(options =>
 });
 
 builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<CondutFyDbContext>());
+builder.Services.AddScoped<IMessagingService, ExternalMessagingService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
