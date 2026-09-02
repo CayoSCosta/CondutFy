@@ -25,6 +25,7 @@ builder.Services.AddDbContext<CondutFyDbContext>(options =>
 
 builder.Services.AddScoped<IApplicationDbContext>(provider => provider.GetRequiredService<CondutFyDbContext>());
 builder.Services.AddScoped<IMessagingService, ExternalMessagingService>();
+builder.Services.AddHttpClient<IMessageSuggestorService, ClaudeMessageSuggestorService>();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();

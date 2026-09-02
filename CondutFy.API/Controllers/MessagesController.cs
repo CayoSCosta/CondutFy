@@ -1,5 +1,6 @@
 using CondutFy.Application.Common.Interfaces;
 using CondutFy.Application.Messages.Commands.SendMessage;
+using CondutFy.Application.Messages.Queries.GetConversationHistory;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CondutFy.API.Controllers;
@@ -29,5 +30,16 @@ public class MessagesController : ControllerBase
         }
 
         return Ok(new { status = "Message sent and logged successfully" });
+    }
+
+    [HttpGet("history/{tenantId}")]
+    public async Task<IActionResult> GetHistory(Guid tenantId, [FromQuery] string? senderPhone, CancellationToken cancellationToken)
+    {
+        var query = new GetConversationHistoryQuery(tenantId, senderPhone);
+        var handler = new GetConversationHistoryQueryHandler(_context);
+        
+        var history = await handler.HandleAsync(query, cancellationToken);
+
+        return Ok(history);
     }
 }
