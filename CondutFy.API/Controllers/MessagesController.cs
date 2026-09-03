@@ -1,21 +1,27 @@
 using CondutFy.Application.Common.Interfaces;
 using CondutFy.Application.Messages.Commands.SendMessage;
 using CondutFy.Application.Messages.Queries.GetConversationHistory;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CondutFy.API.Controllers;
-
+namespace CondutFy. API.Controllers;
+[Authorize]
 [ApiController]
 [Route("api/[controller]")]
 public class MessagesController : ControllerBase
 {
     private readonly IApplicationDbContext _context;
     private readonly IMessagingService _messagingService;
+    private readonly ICurrentUserService _currentUserService;
 
-    public MessagesController(IApplicationDbContext context, IMessagingService messagingService)
+    public MessagesController(
+        IApplicationDbContext context,
+        IMessagingService messagingService,
+        ICurrentUserService currentUserService)
     {
         _context = context;
         _messagingService = messagingService;
+        _currentUserService = currentUserService;
     }
 
     [HttpPost("send")]
@@ -32,12 +38,12 @@ public class MessagesController : ControllerBase
         return Ok(new { status = "Message sent and logged successfully" });
     }
 
-    [HttpGet("history/{tenantId}")]
-    public async Task<IActionResult> GetHistory(Guid tenantId, [FromQuery] string? senderPhone, CancellationToken cancellationToken)
+    [HttpGet("history")]
+    public async Task<IActionResult> GetHistory([FromQuery] string? senderPhone, CancellationToken cancellationToken)
     {
-        var query = new GetConversationHistoryQuery(tenantId, senderPhone);
-        var handler = new GetConversationHistoryQueryHandler(_context);
-        
+        var query = new GetConversationHistoryQuery(senderPhone);
+        var handler = new GetConversationHistoryQueryHandler(_context, _currentUserService);
+
         var history = await handler.HandleAsync(query, cancellationToken);
 
         return Ok(history);
